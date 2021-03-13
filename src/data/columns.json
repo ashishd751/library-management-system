@@ -1,0 +1,27 @@
+[
+    {
+        "name": "number",
+        "display": true,
+        "displayName": "#"
+    },
+    {
+        "name": "title",
+        "display": true,
+        "displayName": "Title"
+    },
+    {
+        "name": "author",
+        "display": true,
+        "displayName": "Author"
+    },
+    {
+        "name": "availableQuantity",
+        "display": true,
+        "displayName": "Quantity"
+    },
+    {
+        "name": "actions",
+        "display": true,
+        "displayName": "Actions"
+    }
+]
