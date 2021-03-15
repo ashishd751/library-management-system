@@ -11,3 +11,24 @@ export const addBook = (data) => dispatch => {
   payload: data
  })
 }
+
+export const editBook = (data) => dispatch => {
+ dispatch({
+  type: 'EDIT_BOOK',
+  payload: data
+ })
+}
+
+export const searchBook = (data) => dispatch => {
+ dispatch({
+  type: 'SEARCH_BOOK',
+  payload: data
+ })
+}
+
+export const clearSearchResults = (data) => dispatch => {
+ dispatch({
+  type: 'CLEAR_SEARCH',
+  payload: data
+ })
+}

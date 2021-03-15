@@ -13,11 +13,34 @@ class App extends Component {
   constructor(props) {
         super(props);
         this.state = {
+          isEditClicked: false,
+          bookOpenedForEdit: null
         }
     }
 
   componentDidMount() {
     this.props.loadInitialBooks({books, columns});
+  }
+
+  onEditClick = (book) => {
+    this.setState({
+      isEditClicked: true,
+      bookOpenedForEdit: book
+    })
+  }
+
+  resetEditView = () => {
+    this.setState({
+      isEditClicked: false,
+      bookOpenedForEdit: null
+    })
+  }
+
+  getActionProps = () => {
+    return {
+      ...this.state,
+      resetEditView: this.resetEditView
+    }
   }
 
   render() {
@@ -26,8 +49,8 @@ class App extends Component {
         <header className="App-header">
           <h2 className="App-title">Welcome to the Library</h2>
           <div className="Table-container">
-            <Table />
-            <Actions />
+            <Table onEditClick={this.onEditClick} />
+            <Actions {...this.getActionProps()} />
           </div>
         </header>
       </div>

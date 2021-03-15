@@ -9,32 +9,35 @@ class Table extends Component {
     }
 
     render() {
+        const {books = [], columns = [], onEditClick} = this.props;
         return (
-            <table id="books">
-                <thead>
-                    <tr>{
-                            this.props.columns.map((column = {}, index) => {
-                                return column.display ? <th key={index}>{column.displayName}</th> : null
+            <div>
+                {(books.length > 0 && columns.length > 0) && <table className="books">
+                    <thead>
+                        <tr>{
+                                columns.map((column = {}, index) => {
+                                    return column.display ? <th key={index}>{column.displayName}</th> : null
+                                })
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            books.map((book = {}) => {
+                                return (
+                                    <tr key={book.id}>
+                                        <td>{book.id}</td>
+                                        <td>{book.title}</td>
+                                        <td>{book.authors.length > 1 ? book.authors.join(', '): book.authors[0]}</td>
+                                        <td>{book.availableQuantity}</td>
+                                        <td className="center-align"><button className="button button2" onClick={() => onEditClick(book)}>Edit</button></td>
+                                    </tr>);
                             })
                         }
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        this.props.books.map((book = {}) => {
-                            return (
-                                <tr key={book.id}>
-                                    <td>{book.id}</td>
-                                    <td>{book.title}</td>
-                                    <td>{book.authors.length > 1 ? book.authors.join(', '): book.authors[0]}</td>
-                                    <td>{book.availableQuantity}</td>
-                                    <td><button>Lend</button> <button>Return</button> <button>Edit</button></td>
-                                </tr>);
-                        })
-                    }
-                </tbody>
-            </table>
-            
+                    </tbody>
+                </table>}
+                {(books.length === 0) && <div>No books found !</div>}
+            </div>
         );
     }
 }
