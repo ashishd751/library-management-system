@@ -1,7 +1,7 @@
-# Getting Started with Library Management App
+# Library Management App
 
 This project was created by [Ashish Deshpande](https://github.com/ashishd751).
-![](https://github.com/ashishd751/excel-renderer-demo/blob/master/public/Library.PNG)
+![](https://github.com/ashishd751/library-management-system/blob/master/public/Library.PNG)
 
 ## Available Scripts
 
